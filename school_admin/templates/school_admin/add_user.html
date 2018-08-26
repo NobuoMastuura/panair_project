@@ -1,0 +1,26 @@
+{% extends 'school_admin/base.html' %}
+{% block content %}
+<h3 class="p-3">顧客追加画面</h3>
+<form action="" method="post">
+  <table class="table table-bordered">
+    <tr>
+      <th>名前</th>
+      <td>{{ form.user_name }}</td>
+    </tr>
+    <tr>
+      <th>性別</th>
+      <td>{{ form.gender }}</td>
+    </tr>
+    <tr>
+      <th>年齢</th>
+      <td>{{ form.age }}</td>
+    </tr>
+  </table>
+  <button type="submit" class="btn btn-primary">送信</button>
+  {% csrf_token %}
+</form>
+
+<ul class="list-inline p-3">
+  <li><a href="{% url 'school_admin:user' %}">戻る</a></li>
+</ul>
+{% endblock %}

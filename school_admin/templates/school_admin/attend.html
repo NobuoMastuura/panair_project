@@ -1,0 +1,36 @@
+{% extends 'school_admin/base.html' %}
+
+{% block content %}
+<h3 class="p-3">レッスン受講記録</h3>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>受講者</th>
+      <th>ジャンル</th>
+      <th>受講日</th>
+      <th>受講時間</th>
+      <th>#</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for a_list in　attend_list %}
+    <tr>
+      <td>{{ a_list.id }}</td>
+      <td>{{ a_list.user }}</td>
+      <td>{{ a_list.lesson }}</td>
+      <td>{{ a_list.attended }}</td>
+      <td>{{ a_list.time }}h</td>
+      <td><a href="{% url 'school_admin:update_attend' a_list.pk%}">編集</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<ul class="list-inline p-3">
+  <li class="list-inline-item"><a href="{% url 'school_admin:index' %}">戻る</a></li>
+  <li class="list-inline-item"><a href="{% url 'school_admin:add_attend' %}">レッスン受講記録登録</a></li>
+</ul>
+
+
+{% endblock %}

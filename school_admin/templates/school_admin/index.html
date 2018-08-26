@@ -1,0 +1,12 @@
+{% extends 'school_admin/base.html' %}
+{% block content %}
+
+<h3 class="p-3">メニュー</h3>
+<ul class="list-group">
+  <li class="list-group-item"><a href="{% url 'school_admin:user' %}">顧客一覧</a></li>
+  <li class="list-group-item"><a href="{% url 'school_admin:attend' %}">レッスン受講記録</a></li>
+  <li class="list-group-item"><a href="{% url 'school_admin:invoice_list' %}">月別請求一覧</a></li>
+  <li class="list-group-item"><a href="{% url 'school_admin:report' %}">レポート</a></li>
+</ul>
+
+{% endblock %}

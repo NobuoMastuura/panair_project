@@ -1,0 +1,33 @@
+{% extends 'school_admin/base.html' %}
+
+{% block content %}
+
+<p>入力フォーム</p>
+<form action="" method="post">
+  <table class="table table-bordered">
+    <tr>
+      <th>受講者</th>
+      <td>{{ form.user }}</td>
+    </tr>
+    <tr>
+      <th>授業</th>
+      <td>{{ form.lesson }}</td>
+    </tr>
+    <tr>
+      <th>受講日</th>
+      <td>{{ form.attended }}</td>
+    </tr>
+    <tr>
+      <th>受講時間</th>
+      <td>{{ form.time }}</td>
+    </tr>
+  </table>
+  <button type="submit" class="btn btn-primary">送信</button>
+  {% csrf_token %}
+</form>
+
+<ul class="list-inline p-3">
+  <li><a href="{% url 'school_admin:attend' %}">戻る</a></li>
+</ul>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'school_admin/base.html' %}
+
+{% block content %}
+<h3 class="p-3">顧客一覧</h3>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>名前</th>
+      <th>性別</th>
+      <th>年齢</th>
+      <th>編集</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for user in　user_list %}
+    <tr>
+      <td>{{ user.id }}</td>
+      <td>{{ user.user_name }}</td>
+      <td>{{ user.gender }}</td>
+      <td>{{ user.age }}歳</td>
+      <td><a href="{% url 'school_admin:update_user' user.pk%}">編集</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<ul class="list-inline p-3">
+  <li class="list-inline-item"><a href="{% url 'school_admin:index' %}">戻る</a></li>
+  <li class="list-inline-item"><a href="/users/add_user/">顧客追加</a></li>
+</ul>
+
+
+
+{% endblock %}
